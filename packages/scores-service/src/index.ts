@@ -1,5 +1,25 @@
-// scores-service — Scores Service
-// Scope: HTTP service that persists completed-game results (player name, difficulty, time-to-solve) in a SQLite database and serves a per-difficulty top-10 leaderboard sorted by time-to-solve.
-// Owns: packages/scores-service
-// This team builds its slice here each phase.
-export {};
+import express, { json } from 'express';
+import type { Request, Response } from 'express';
+import scoresRouter from './routes/scores';
+import leaderboardRouter from './routes/leaderboard';
+
+const app = express();
+const PORT = process.env.PORT ? parseInt(process.env.PORT, 10) : 3000;
+
+// Middleware
+app.use(json());
+
+// Health check endpoint
+app.get('/health', (req: Request, res: Response) => {
+  res.json({ status: 'ok' });
+});
+
+// API routes
+app.use('/scores', scoresRouter);
+app.use('/leaderboard', leaderboardRouter);
+
+app.listen(PORT, () => {
+  console.log(`Scores service listening on port ${PORT}`);
+});
+
+export default app;
