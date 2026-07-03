@@ -1,5 +1,5 @@
 import { Router, Request, Response } from "express";
-import type { ValidatePuzzleRequest, ValidatePuzzleResponse } from "../../contracts/src/index";
+import type { ValidatePuzzleRequest, ValidatePuzzleResponse } from "@init-sudoku-post6/contracts";
 import { validateBoard } from "../services/boardValidator";
 
 const router = Router();

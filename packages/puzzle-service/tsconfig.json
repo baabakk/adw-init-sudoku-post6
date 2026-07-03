@@ -15,5 +15,6 @@
     "module": "CommonJS",
     "lib": ["ES2022", "DOM"]
   },
-  "include": ["src"]
+  "include": ["src"],
+  "references": [{ "path": "../contracts" }]
 }
