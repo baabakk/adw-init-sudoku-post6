@@ -1,19 +1,18 @@
 {
-  "extends": "../../tsconfig.json",
   "compilerOptions": {
+    "composite": true,
     "outDir": "dist",
     "rootDir": "src",
-    "composite": true,
-    "declaration": true,
+    "strict": true,
     "module": "NodeNext",
-    "moduleResolution": "NodeNext",
-    "target": "ES2022",
-    "lib": ["ES2022"],
-    "sourceMap": true,
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "skipLibCheck": true
+    "moduleResolution": "NodeNext"
   },
-  "include": ["src"],
-  "references": [{"path": "../contracts"}]
+  "references": [
+    {
+      "path": "../contracts"
+    }
+  ],
+  "include": [
+    "src"
+  ]
 }
